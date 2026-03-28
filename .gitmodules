@@ -1,0 +1,3 @@
+[submodule "blawkops_sh"]
+	path = blawkops_sh
+	url = git@github.com:noosehack/blawkops_sh.git
