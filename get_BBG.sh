@@ -40,6 +40,10 @@ fetch_single() {
 }
 
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+echo -e "\n${CYAN}>>> IVL${RESET}"
+fetch_uni UNI_IVL.csv RAW_IVL.csv
+
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 echo -e "\n${CYAN}>>> CTY_YC2Y10${RESET}"
 fetch_uni UNI_CTY_YC2Y10.csv CTY_YC2Y10.csv
 
