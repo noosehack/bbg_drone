@@ -26,7 +26,7 @@ upload() {
 fetch_uni() {
     local uni=$1 out=$2 extra=${3:-}
     local tickers
-    tickers=$(paste -d"," -s "$REPO_DIR/$uni" | sed 's/^/"/g' | sed 's/$/"/g')
+    tickers=$(cut -d";" -f1 "$REPO_DIR/$uni" | paste -d"," -s | sed 's/^/"/g' | sed 's/$/"/g')
     echo "bash \"$MYDRONE\" histo eod --weekend -d 2000-01-01 $extra -i $tickers" | bash | dos2unix | sed 's/_PX_LAST//g' > "$out"
     cut -d";" -f1 "$out" | tail
     upload "$out"
@@ -76,3 +76,13 @@ fetch_single "FXCTEM8 Index" FXCTEM8.csv
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 echo -e "\n${CYAN}>>> VIX${RESET}"
 fetch_single "VIX Index" VIX.csv
+
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+echo -e "\n${CYAN}>>> MOVE${RESET}"
+fetch_single "MOVE Index" MOVE.csv
+
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+echo -e "\n${CYAN}>>> V2X${RESET}"
+fetch_single "V2X Index" V2X.csv
+
+
